@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Harry Poter</string>
+    <string name="title_home">Home</string>
+
+    <string name="title_characters">Characters</string>
+    <string name="title_spells">Spells</string>
+    <string name="plus">+</string>
+    <string name="character_id">Character id:</string>
+    <string name="character_name">Name:</string>
+    <string name="character_alternateName">Alternate names:</string>
+    <string name="character_species">Species:</string>
+    <string name="character_gender">Gender:</string>
+    <string name="character_house">House:</string>
+    <string name="character_data_of_birth">Birthday:</string>
+    <string name="character_year_of_birth">Year of birth:</string>
+    <string name="character_ancestry">Ancestry:</string>
+    <string name="character_eye_color">Eye color is</string>
+    <string name="character_hair_color">Hair color is</string>
+    <string name="character_wand">Wand:</string>
+    <string name="character_patronus">Patronus</string>
+    <string name="character_actor">Actor what played:</string>
+    <string name="character_alternative_actors">Had played by alternative actors:</string>
+    <string name="character_spell_list">Wizard can cast:</string>
+    <string name="character_is_wizard">Character is wizard</string>
+    <string name="character_is_not_wizard">Character is not wizard</string>
+    <string name="character_is_dead">Character is dead</string>
+    <string name="character_is_alive">Character is alive</string>
+    <string name="working_in_hogwarts">Working in Hogwarts</string>
+    <string name="character_studied_at_hogwards">Character studied at Hogwards</string>
+    <string name="houseless">Houseless</string>
+    <string name="ravenclaw">Ravenclaw</string>
+    <string name="hufflepuff">Hufflepuff</string>
+    <string name="slytherin">Slytherin</string>
+    <string name="gryffindor">Gryffindor</string>
+    <string name="train_wizards_with_random_spell">Train all wizards with random spell</string>
+</resources>

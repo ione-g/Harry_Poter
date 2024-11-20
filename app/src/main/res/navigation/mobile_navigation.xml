@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_characters">
+
+
+
+    <fragment
+        android:id="@+id/navigation_characters"
+        android:name="eone.grim.harrypoter.ui.characters.CharactersFragment"
+        android:label="@string/title_characters"
+        tools:layout="@layout/fragment_characters" >
+        <action
+            android:id="@+id/action_navigation_characters_to_character_detailed"
+            app:destination="@id/character_detailed"
+            app:popUpTo="@id/navigation_characters"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_spells"
+        android:name="eone.grim.harrypoter.ui.spells.SpellsFragment"
+        android:label="@string/title_spells"
+        tools:layout="@layout/fragment_spells" >
+        <action
+            android:id="@+id/action_navigation_spells_to_SpellDetailed"
+            app:destination="@id/SpellDetailed"
+            app:popUpTo="@id/navigation_spells"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SpellDetailed"
+        android:name="eone.grim.harrypoter.ui.spells.SpellDetailed"
+        android:label="Spell Detailed">
+        <argument
+            android:name="spell"
+            app:argType="eone.grim.harrypoter.entities.Spell" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/character_detailed"
+        android:name="eone.grim.harrypoter.ui.characters.CharacterDetailed"
+        android:label="Character Detailed">
+        <argument
+            android:name="character"
+            app:argType="eone.grim.harrypoter.entities.Character" />
+        <action
+            android:id="@+id/action_character_detailed_to_navigation_spells"
+            app:destination="@id/navigation_spells">
+            <argument
+                android:name="characterId"
+                app:argType="string"
+                />
+        </action>
+    </fragment>
+</navigation>
