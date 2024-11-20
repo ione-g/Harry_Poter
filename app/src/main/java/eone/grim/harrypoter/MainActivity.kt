@@ -12,6 +12,7 @@ import androidx.room.Room
 import eone.grim.harrypoter.api.ApiService
 import eone.grim.harrypoter.databinding.ActivityMainBinding
 import eone.grim.harrypoter.db.AppDatabase
+import eone.grim.harrypoter.ui.characters.CharactersFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -60,6 +61,9 @@ class MainActivity : AppCompatActivity() {
         fetchCharacters()
         fetchSpells()
     }
+
+
+
 
     private fun fetchSpells() {
         CoroutineScope(Dispatchers.IO).launch {

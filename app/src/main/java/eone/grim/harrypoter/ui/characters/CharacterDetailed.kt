@@ -1,15 +1,15 @@
 package eone.grim.harrypoter.ui.characters
 
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -19,6 +19,7 @@ import eone.grim.harrypoter.databinding.FragmentCharacterDetailedBinding
 import eone.grim.harrypoter.entities.Character
 
 class CharacterDetailed: Fragment() {
+
 
     private var _binding: FragmentCharacterDetailedBinding? = null
 
@@ -55,6 +56,7 @@ class CharacterDetailed: Fragment() {
 
 
         loadUI(character)
+        setUpHousesDropdownMenu(character,binding.characterHouseSpinner,charactersViewModel)
 
         character.let {
             binding.character = it
@@ -96,7 +98,6 @@ class CharacterDetailed: Fragment() {
         isFieldIsNullOrEmpty(character.actor,binding.characterActorLl,binding.characterActorText)
         isFieldIsNullOrEmpty(character.alternateActors.toString(),binding.characterAlternativeActorsLl,binding.characterAlternativeActorsText)
 
-        setUpHousesDropdownMenu(character,binding.characterHouseSpinner)
 
         if (character.wizard) {
             binding.characterIsWizardText.text = getString(R.string.character_is_wizard)
@@ -137,7 +138,11 @@ class CharacterDetailed: Fragment() {
 
     }
 
-    private fun setUpHousesDropdownMenu(character: Character,houseSpinner:Spinner) {
+    private fun setUpHousesDropdownMenu(
+        character: Character,
+        houseSpinner: Spinner,
+        charactersViewModel: CharactersViewModel
+    ) {
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, HOUSES)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         houseSpinner.adapter = adapter
@@ -148,9 +153,28 @@ class CharacterDetailed: Fragment() {
             "Hufflepuff" ->"Hufflepuff"
             else -> {"Houseless"}
         }
+
         val housePosition = HOUSES.indexOf(characterHouse)
         if (housePosition != -1) {
             houseSpinner.setSelection(housePosition)
+        }
+
+        houseSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parentView: AdapterView<*>?, selectedItemView: View?,
+                position: Int, id: Long
+            ) {
+                val selectedHouse = HOUSES[position]
+                if (character.house != selectedHouse) {
+                    character.house = selectedHouse
+                    charactersViewModel.updateCharacter(character                    )
+                    Toast.makeText(requireContext(),"Updating...",Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // Do nothing when no item is selected
+            }
         }
     }
 

@@ -20,7 +20,7 @@ data class Character(
     val alternateNames: List<String>? = null,
     val species: String? = null,
     val gender: String? = null,
-    val house: String? = null,
+    var house: String? = null,
     val dateOfBirth: String? = null,
     val yearOfBirth: Int? = 0,
     val wizard: Boolean = false,

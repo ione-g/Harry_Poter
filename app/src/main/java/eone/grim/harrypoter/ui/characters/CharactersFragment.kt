@@ -72,4 +72,8 @@ class CharactersFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun notifyDataSetChanged() {
+        characterAdapter.notifyDataSetChanged()
+    }
 }

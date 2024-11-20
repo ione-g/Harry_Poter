@@ -74,5 +74,11 @@ class CharactersViewModel(application: Application) : AndroidViewModel(applicati
             }
         }
     }
+
+    fun updateCharacter(character: Character) {
+        viewModelScope.launch {
+            characterDao.updateCharacter(character)
+        }
+    }
 }
 

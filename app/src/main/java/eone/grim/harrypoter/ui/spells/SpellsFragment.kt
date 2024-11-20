@@ -76,8 +76,8 @@ class SpellsFragment : Fragment() {
         })
 
         binding.trainWizardsRandomSpell.setOnClickListener{
-           val toughSpell = spellsViewModel.teachRandomSpellToAllCharacters()
-            Toast.makeText(requireContext(),"All alive wizards tough ${toughSpell?.name}",Toast.LENGTH_LONG).show()
+           val taughtSpell = spellsViewModel.teachRandomSpellToAllCharacters()
+            Toast.makeText(requireContext(),"All alive wizards taught ${taughtSpell?.name}",Toast.LENGTH_LONG).show()
         }
 
 

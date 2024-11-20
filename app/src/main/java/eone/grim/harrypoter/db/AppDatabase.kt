@@ -11,7 +11,7 @@ import eone.grim.harrypoter.db.dao.CharacterDao
 import eone.grim.harrypoter.db.dao.SpellDao
 import eone.grim.harrypoter.entities.CharacterSpellRef
 
-@Database(entities = [Character::class,Spell::class,CharacterSpellRef::class], version = 8, exportSchema = false)
+@Database(entities = [Character::class,Spell::class,CharacterSpellRef::class], version = 10, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao(): CharacterDao
